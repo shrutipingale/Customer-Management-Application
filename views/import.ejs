@@ -1,0 +1,23 @@
+<%- include("_header") -%>
+<br>
+<h2>Customer Import</h2>
+
+<p>Total number of records in the database: <%=totRecs%></p>
+
+<p>Select a file with customers for Database Insert.</p><br>
+
+<form action="/import" method="post" enctype="multipart/form-data">
+    <input type="file" name="filename" required><br/><br/>
+<input type="submit" id="submit" value="Import Customers" class="btn btn-primary "/>
+</form>
+
+<% if(type==="POST" ) { %>
+    <h3>Import Summary</h3>
+    <strong><p id='no_of_records'>Records Processed: <%=success + failed %> </p></strong>
+    <strong> <p id='no_of_records_inserted'>Records Inserted Successfully: <%=success%> </p></strong>
+    <strong><p id='no_of_records_deleted'>Records not Inserted: <%=failed%></p></strong>
+    <br>
+    <strong><p id='error'>Errors:<%=errors%></p></strong>
+<% } %>
+
+<%- include("_footer") -%>

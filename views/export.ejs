@@ -1,0 +1,20 @@
+<%- include("_header") -%>
+<br>
+<h2>Customer Export</h2>
+
+<p>Total number of records in the database: <%= totRecs %></p>
+
+<p>Enter a file name and click "Export Customers"</p>
+
+<form action="/export" method="post">
+    <label for="fname">File Name</label>
+    <input type="text" id="fname" name="fname" value="export.txt"><br>
+    <input type="submit" id="submit" value="Export Customers" class="btn btn-primary "/>
+</form>
+
+<% if(message.substring(0,5) === "Error") { %>
+    <h2>Error!</h2>
+    <p><%= message %></p>
+<% } %>
+
+<%- include("_footer") -%>
